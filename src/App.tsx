@@ -19,21 +19,21 @@ function App() {
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
               <div>
-                <div className="flex items-center gap-2 text-indigo-600 font-bold text-sm mb-2">
-                  <div className="w-2 h-2 rounded-full bg-indigo-600 animate-pulse" />
+                <div className="flex items-center gap-2 text-indigo-600 font-bold text-sm mb-3">
+                  <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 animate-pulse shadow-lg shadow-indigo-300" />
                   Active Campaign
                 </div>
-                <h2 className="text-4xl font-extrabold tracking-tight text-slate-900">{activeJob.title}</h2>
-                <p className="text-slate-500 mt-2 font-medium">{activeJob.department} Team • 24 days remaining</p>
+                <h2 className="text-5xl font-extrabold tracking-tight bg-gradient-to-r from-slate-900 via-indigo-900 to-purple-900 bg-clip-text text-transparent">{activeJob.title}</h2>
+                <p className="text-slate-600 mt-3 font-semibold text-lg">{activeJob.department} Team • 24 days remaining</p>
               </div>
 
               <div className="flex gap-3">
-                <button className="flex items-center gap-2 px-5 py-2.5 bg-white border border-slate-200 rounded-xl font-bold text-slate-600 hover:bg-slate-50 transition-all shadow-sm">
+                <button className="flex items-center gap-2 px-6 py-3 bg-white/80 backdrop-blur-lg border-2 border-indigo-100 rounded-2xl font-bold text-slate-700 hover:bg-white hover:border-indigo-200 hover:shadow-lg transition-all shadow-sm">
                   <Filter size={18} /> Filter
                 </button>
                 <button
                   onClick={generateRandomCandidate}
-                  className="flex items-center gap-2 px-5 py-2.5 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-100"
+                  className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl font-bold hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg shadow-indigo-200 hover:shadow-xl hover:shadow-indigo-300 hover:scale-105 duration-300"
                 >
                   <Plus size={18} /> New Applicant
                 </button>
@@ -59,26 +59,26 @@ function App() {
       case 'candidates':
         return (
           <div className="animate-in fade-in duration-500">
-            <h2 className="text-3xl font-bold mb-6">Candidate Database</h2>
-            <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+            <h2 className="text-5xl font-extrabold bg-gradient-to-r from-slate-900 via-indigo-900 to-purple-900 bg-clip-text text-transparent mb-8">Candidate Database</h2>
+            <div className="bg-white/80 backdrop-blur-lg rounded-3xl border-2 border-indigo-100 overflow-hidden shadow-xl">
               <table className="w-full text-left">
-                <thead className="bg-slate-50 border-b border-slate-200">
+                <thead className="bg-gradient-to-r from-indigo-600 to-purple-600 border-b-2 border-indigo-700">
                   <tr>
-                    <th className="px-6 py-4 text-sm font-bold text-slate-500 uppercase">Name</th>
-                    <th className="px-6 py-4 text-sm font-bold text-slate-500 uppercase">Role</th>
-                    <th className="px-6 py-4 text-sm font-bold text-slate-500 uppercase">Stage</th>
-                    <th className="px-6 py-4 text-sm font-bold text-slate-500 uppercase">AI Score</th>
+                    <th className="px-6 py-5 text-sm font-bold text-white uppercase tracking-wider">Name</th>
+                    <th className="px-6 py-5 text-sm font-bold text-white uppercase tracking-wider">Role</th>
+                    <th className="px-6 py-5 text-sm font-bold text-white uppercase tracking-wider">Stage</th>
+                    <th className="px-6 py-5 text-sm font-bold text-white uppercase tracking-wider">AI Score</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100">
+                <tbody className="divide-y divide-indigo-100">
                   {filteredCandidates.map(c => (
-                    <tr key={c.id} className="hover:bg-slate-50 transition-colors">
-                      <td className="px-6 py-4 font-semibold text-slate-900">{c.name}</td>
-                      <td className="px-6 py-4 text-slate-500">{c.roleApplied}</td>
-                      <td className="px-6 py-4">
-                        <span className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-bold uppercase tracking-wider">{c.stage}</span>
+                    <tr key={c.id} className="hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 transition-all">
+                      <td className="px-6 py-5 font-bold text-slate-900">{c.name}</td>
+                      <td className="px-6 py-5 text-slate-600 font-medium">{c.roleApplied}</td>
+                      <td className="px-6 py-5">
+                        <span className="px-4 py-1.5 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">{c.stage}</span>
                       </td>
-                      <td className="px-6 py-4 font-bold text-indigo-600">{c.aiAnalysis?.score || '-'}%</td>
+                      <td className="px-6 py-5 font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent text-lg">{c.aiAnalysis?.score || '-'}%</td>
                     </tr>
                   ))}
                 </tbody>
@@ -89,8 +89,8 @@ function App() {
 
       case 'organization':
         return (
-          <div className="animate-in fade-in duration-500 space-y-6">
-            <h2 className="text-3xl font-bold mb-2">Organization Settings</h2>
+          <div className="animate-in fade-in duration-500 space-y-8">
+            <h2 className="text-5xl font-extrabold bg-gradient-to-r from-slate-900 via-indigo-900 to-purple-900 bg-clip-text text-transparent mb-4">Organization Settings</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <OrgCard icon={<Building2 className="text-indigo-600" />} title="Company Profile" desc="Manage your brand identity and recruitment pages." />
               <OrgCard icon={<Users className="text-emerald-600" />} title="Team Access" desc="Invite and manage recruiters or hiring managers." />
@@ -103,18 +103,18 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] flex font-sans text-slate-900">
-      <aside className="w-72 bg-white border-r border-slate-200 hidden lg:flex flex-col sticky top-0 h-screen">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 flex font-sans text-slate-900">
+      <aside className="w-72 bg-gradient-to-b from-indigo-600 via-purple-600 to-indigo-700 hidden lg:flex flex-col sticky top-0 h-screen shadow-2xl">
         <div className="p-8">
-          <div className="flex items-center gap-3 px-2 cursor-pointer" onClick={() => setActiveTab('dashboard')}>
-            <div className="h-10 w-10 bg-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-200">
-              <Sparkles className="text-white w-6 h-6" />
+          <div className="flex items-center gap-3 px-2 cursor-pointer group" onClick={() => setActiveTab('dashboard')}>
+            <div className="h-12 w-12 bg-white/20 backdrop-blur-lg rounded-2xl flex items-center justify-center shadow-lg border border-white/30 group-hover:scale-110 transition-transform duration-300">
+              <Sparkles className="text-white w-7 h-7" />
             </div>
-            <h1 className="text-2xl font-black tracking-tight">Recruit<span className="text-indigo-600">AI</span></h1>
+            <h1 className="text-2xl font-black tracking-tight text-white">Recruit<span className="text-cyan-300">AI</span></h1>
           </div>
         </div>
 
-        <nav className="flex-1 px-4 space-y-1.5">
+        <nav className="flex-1 px-4 space-y-2">
           <NavItem
             icon={<LayoutDashboard size={20} />}
             label="Dashboard"
@@ -137,23 +137,23 @@ function App() {
       </aside>
 
       <main className="flex-1 min-w-0 flex flex-col">
-        <header className="h-20 bg-white border-b border-slate-200 px-8 flex items-center justify-between sticky top-0 z-10">
+        <header className="h-20 bg-white/80 backdrop-blur-xl border-b border-indigo-100/50 px-8 flex items-center justify-between sticky top-0 z-10 shadow-lg shadow-indigo-50/50">
           <div className="relative w-96">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-indigo-400 w-5 h-5" />
             <input
               type="text"
               placeholder="Search by name, email, or role..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 rounded-xl bg-slate-50 border-transparent focus:bg-white focus:ring-2 focus:ring-indigo-100 focus:border-indigo-400 transition-all text-sm"
+              className="w-full pl-12 pr-4 py-3 rounded-2xl bg-gradient-to-r from-slate-50 to-indigo-50 border-2 border-transparent focus:border-indigo-300 focus:ring-4 focus:ring-indigo-100 transition-all text-sm font-medium placeholder:text-slate-400 shadow-inner"
             />
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <div className="text-right hidden sm:block">
-              <p className="text-xs font-bold text-slate-900">Recruiter</p>
-              <p className="text-[10px] text-slate-500 font-medium uppercase tracking-wider">Admin Role</p>
+              <p className="text-sm font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Recruiter</p>
+              <p className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Admin Role</p>
             </div>
-            <div className="h-10 w-10 rounded-full bg-gradient-to-tr from-slate-200 to-slate-100 border border-slate-200 shadow-sm flex items-center justify-center font-bold text-slate-500">A</div>
+            <div className="h-11 w-11 rounded-full bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 border-2 border-white shadow-lg flex items-center justify-center font-bold text-white text-sm hover:scale-110 transition-transform duration-300 cursor-pointer">A</div>
           </div>
         </header>
 
@@ -169,12 +169,15 @@ function App() {
 function NavItem({ icon, label, active = false, onClick }: { icon: any, label: string, active?: boolean, onClick: () => void }) {
   return (
     <button onClick={onClick} className={`
-      w-full flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition-all
+      w-full flex items-center gap-3 px-4 py-3.5 rounded-xl font-semibold transition-all duration-300 group
       ${active
-        ? 'bg-indigo-50 text-indigo-600'
-        : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'}
+        ? 'bg-white/20 backdrop-blur-lg text-white shadow-lg border border-white/30'
+        : 'text-white/70 hover:bg-white/10 hover:text-white hover:backdrop-blur-lg'
+      }
     `}>
-      {icon}
+      <span className={`transition-transform duration-300 ${active ? 'scale-110' : 'group-hover:scale-110'}`}>
+        {icon}
+      </span>
       {label}
     </button>
   );
@@ -182,12 +185,12 @@ function NavItem({ icon, label, active = false, onClick }: { icon: any, label: s
 
 function OrgCard({ icon, title, desc }: { icon: any, title: string, desc: string }) {
   return (
-    <div className="bg-white p-6 rounded-2xl border border-slate-200 hover:border-indigo-200 hover:shadow-lg transition-all cursor-pointer group">
-      <div className="h-12 w-12 bg-slate-50 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+    <div className="bg-white/80 backdrop-blur-lg p-7 rounded-3xl border-2 border-indigo-100 hover:border-indigo-300 hover:shadow-2xl transition-all cursor-pointer group hover:scale-[1.02] duration-300">
+      <div className="h-14 w-14 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-lg border border-indigo-100">
         {icon}
       </div>
-      <h3 className="font-bold text-lg mb-1">{title}</h3>
-      <p className="text-slate-500 text-sm leading-relaxed">{desc}</p>
+      <h3 className="font-bold text-xl mb-2 bg-gradient-to-r from-slate-900 to-indigo-900 bg-clip-text text-transparent">{title}</h3>
+      <p className="text-slate-600 text-sm leading-relaxed font-medium">{desc}</p>
     </div>
   );
 }
